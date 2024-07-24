@@ -13,7 +13,7 @@ import Cart from '../../Components/Cart/Cart';
 import Footer from '../../Components/Footer/Footer';
 
 const Browse = props => {
-  const { 
+     const {
           handleHover,
           handleSelect,
           hoverState,
@@ -45,177 +45,177 @@ const Browse = props => {
           handleRemoveFromCart,
           setHoverState,
           openGamePage
-        } = props;
-    
-    const navigate = useNavigate();
-    const [landingPage, setLandingPage] = useState(false);
-    const [grid, setGrid] = useState(true);
+     } = props;
 
-    const handleLayoutSwitch = (e) => {
-      if (e.target.id == "grid") {
-        setGrid(true);
-      } else {
-        setGrid(false);
-      }
-    }
+     const navigate = useNavigate();
+     const [landingPage, setLandingPage] = useState(false);
+     const [grid, setGrid] = useState(true);
 
-    useEffect(() => {
-      if (currentFilter == "none") {
-        setShownGames(allGames);
+     const handleLayoutSwitch = (e) => {
+          if (e.target.id == "grid") {
+               setGrid(true);
+          } else {
+               setGrid(false);
+          }
+     }
 
-      } else if (currentFilter != "Ratings" && currentFilter != "Reviews" && currentFilter != "Wishlist") {
-          let filteredShownGames = allGames.filter(game => game.genre === currentFilter);
-          setShownGames(filteredShownGames);
+     useEffect(() => {
+          if (currentFilter == "none") {
+               setShownGames(allGames);
 
-      } else if (currentFilter === "Ratings") {
-          let filteredShownGames = allGames.slice(0);
-          filteredShownGames = filteredShownGames.sort(function(a, b) {
-            return b.rating - a.rating;
-          })
-          setShownGames(filteredShownGames);
+          } else if (currentFilter != "Ratings" && currentFilter != "Reviews" && currentFilter != "Wishlist") {
+               let filteredShownGames = allGames.filter(game => game.genre === currentFilter);
+               setShownGames(filteredShownGames);
 
-      } else if (currentFilter === "Reviews") {
-          setReviewDisplay(true);
+          } else if (currentFilter === "Ratings") {
+               let filteredShownGames = allGames.slice(0);
+               filteredShownGames = filteredShownGames.sort(function (a, b) {
+                    return b.rating - a.rating;
+               })
+               setShownGames(filteredShownGames);
 
-      } else if (currentFilter === "Wishlist") {
-          let filteredShownGames = allGames.filter(game => game.isLiked === true);
-          setShownGames(filteredShownGames);
-      }
+          } else if (currentFilter === "Reviews") {
+               setReviewDisplay(true);
 
-      if (currentFilter != "Reviews") {
-          setReviewDisplay(false);
-      }
-    }, [currentFilter])
+          } else if (currentFilter === "Wishlist") {
+               let filteredShownGames = allGames.filter(game => game.isLiked === true);
+               setShownGames(filteredShownGames);
+          }
 
-    useEffect(() => {
-      if (cartDisplayed) {
-        document.body.style.overflow = "hidden";   
-      } else {
-        document.body.style.overflow = "scroll";
-      }
-    }, [cartDisplayed])
+          if (currentFilter != "Reviews") {
+               setReviewDisplay(false);
+          }
+     }, [currentFilter])
 
-    useEffect(() => {
-      let unhoveredState = hoverState.map((element, i) => {
-        if (i >= 25) {
-          return
-        } else {
-             element.hovered = false;
-             return element;
-        }
-      });
+     useEffect(() => {
+          if (cartDisplayed) {
+               document.body.style.overflow = "hidden";
+          } else {
+               document.body.style.overflow = "scroll";
+          }
+     }, [cartDisplayed])
 
-      setHoverState(unhoveredState);
-    }, []);
+     useEffect(() => {
+          let unhoveredState = hoverState.map((element, i) => {
+               if (i >= 25) {
+                    return
+               } else {
+                    element.hovered = false;
+                    return element;
+               }
+          });
 
-    return (
-      <section className={styles.Browse} style={{ maxHeight: cartDisplayed ? "100vh" : "1000vh", minHeight: "100vh" }}>
-        {cartDisplayed ? <Cart 
-              cartDisplayed={cartDisplayed} 
-              handleOpenCart={handleOpenCart}
-              handleCloseCart={handleCloseCart}
-              cart={cart}
-              cartAmount={cartAmount}
-              handleHover={handleHover}
-              hoverState={hoverState}
-              clearCart={clearCart}
-              handleRemoveFromCart={handleRemoveFromCart}
-              openGamePage={openGamePage}
-        /> : null}
+          setHoverState(unhoveredState);
+     }, []);
 
-        <NavBar
-          handleHover={handleHover}
-          hoverState={hoverState}
-          handleBrowse={handleBrowse}
-          handleHome={handleHome}
-          browsing={browsing}
-          landingPage={landingPage}
-          cartAmount={cartAmount}
-          search={search}
-          searching={searching}
-          handleSearch={handleSearch}
-          handleSearchSubmit={handleSearchSubmit}
-          handleOpenCart={handleOpenCart}
-        />
+     return (
+          <section className={styles.Browse} style={{ maxHeight: cartDisplayed ? "100vh" : "1000vh", minHeight: "100vh" }}>
+               {cartDisplayed ? <Cart
+                    cartDisplayed={cartDisplayed}
+                    handleOpenCart={handleOpenCart}
+                    handleCloseCart={handleCloseCart}
+                    cart={cart}
+                    cartAmount={cartAmount}
+                    handleHover={handleHover}
+                    hoverState={hoverState}
+                    clearCart={clearCart}
+                    handleRemoveFromCart={handleRemoveFromCart}
+                    openGamePage={openGamePage}
+               /> : null}
 
-        <AnimatedPage exitBeforeEnter>
-            <div className={styles.browseContent}>
-              <Filters 
-                hoverState={hoverState}
-                handleHover={handleHover}
-                handleSelect={handleSelect}
-                currentFilter={currentFilter} 
-              />
+               <NavBar
+                    handleHover={handleHover}
+                    hoverState={hoverState}
+                    handleBrowse={handleBrowse}
+                    handleHome={handleHome}
+                    browsing={browsing}
+                    landingPage={landingPage}
+                    cartAmount={cartAmount}
+                    search={search}
+                    searching={searching}
+                    handleSearch={handleSearch}
+                    handleSearchSubmit={handleSearchSubmit}
+                    handleOpenCart={handleOpenCart}
+               />
 
-              <div className={styles.list}>
-                <h1>Trending and interesting</h1>
-                <p>Based on player counts and ratings</p>
+               <AnimatedPage exitBeforeEnter>
+                    <div className={styles.browseContent}>
+                         <Filters
+                              hoverState={hoverState}
+                              handleHover={handleHover}
+                              handleSelect={handleSelect}
+                              currentFilter={currentFilter}
+                         />
 
-                <div className={styles.applied}>
-                  <div className={styles.filterList}>
-                    <button 
-                      className={styles.filterButton} 
-                      aria-label="Current Filter"
-                    >
-                      Filter by:
-                      <span> {currentFilter}</span>
-                    </button>
-                    <button 
-                      className={`${styles.filterButton} ${styles.clearButton}`}
-                      onClick={clearFilter} 
-                      aria-label="Clear Filters"
-                    >
-                      Clear Filter
-                    </button>
-                  </div>
-                  
-                  <div className={styles.displayStyle}>
-                    <p>Display options:</p>
-                    <button 
-                      className={styles.displayBtn} 
-                      onClick={handleLayoutSwitch} 
-                      id="grid" 
-                      aria-label='Display grids'
-                    >
-                      <Grids 
-                        className={styles.displayItem} 
-                        style={{ fill: grid ? "#e5e5e5" : "#6f6f6f" }}
-                      />
-                    </button>
+                         <div className={styles.list}>
+                              <h1>Trending and interesting</h1>
+                              <p>Based on player counts and ratings</p>
 
-                    <button 
-                      className={styles.displayBtn} 
-                      onClick={handleLayoutSwitch} 
-                      id="columns" 
-                      aria-label='Display columns'
-                    > 
-                      <Columns 
-                        className={styles.displayItem} 
-                        style={{ fill: grid ? "#6f6f6f" : "#e5e5e5" }}
-                      />
-                    </button>
-                  </div>
-                </div>
+                              <div className={styles.applied}>
+                                   <div className={styles.filterList}>
+                                        <button
+                                             className={styles.filterButton}
+                                             aria-label="Current Filter"
+                                        >
+                                             Filter by:
+                                             <span> {currentFilter}</span>
+                                        </button>
+                                        <button
+                                             className={`${styles.filterButton} ${styles.clearButton}`}
+                                             onClick={clearFilter}
+                                             aria-label="Clear Filters"
+                                        >
+                                             Clear Filter
+                                        </button>
+                                   </div>
 
-                    <Grid 
-                      shownGames={shownGames}
-                      reviewDisplay={reviewDisplay}
-                      handleLike={handleLike}
-                      handleHoverGame={handleHoverGame}
-                      handleAddToCart={handleAddToCart}
-                      grid={grid}
-                      search={search}
-                      searching={searching}
-                      handleSelectGame={handleSelectGame}
-                      cartDisplayed={cartDisplayed}
-                      hoverState={hoverState}
-                    />
-              </div>
-            </div>
-        </AnimatedPage>
-        <Footer />
-      </section>
-    );
-  }
-  
-  export default Browse;
+                                   <div className={styles.displayStyle}>
+                                        <p>Display options:</p>
+                                        <button
+                                             className={styles.displayBtn}
+                                             onClick={handleLayoutSwitch}
+                                             id="grid"
+                                             aria-label='Display grids'
+                                        >
+                                             <Grids
+                                                  className={styles.displayItem}
+                                                  style={{ fill: grid ? "#e5e5e5" : "#6f6f6f" }}
+                                             />
+                                        </button>
+
+                                        <button
+                                             className={styles.displayBtn}
+                                             onClick={handleLayoutSwitch}
+                                             id="columns"
+                                             aria-label='Display columns'
+                                        >
+                                             <Columns
+                                                  className={styles.displayItem}
+                                                  style={{ fill: grid ? "#6f6f6f" : "#e5e5e5" }}
+                                             />
+                                        </button>
+                                   </div>
+                              </div>
+
+                              <Grid
+                                   shownGames={shownGames}
+                                   reviewDisplay={reviewDisplay}
+                                   handleLike={handleLike}
+                                   handleHoverGame={handleHoverGame}
+                                   handleAddToCart={handleAddToCart}
+                                   grid={grid}
+                                   search={search}
+                                   searching={searching}
+                                   handleSelectGame={handleSelectGame}
+                                   cartDisplayed={cartDisplayed}
+                                   hoverState={hoverState}
+                              />
+                         </div>
+                    </div>
+               </AnimatedPage>
+               <Footer />
+          </section>
+     );
+}
+
+export default Browse;

@@ -132,7 +132,7 @@ function App() {
      const navigate = useNavigate();
      const location = useLocation();
 
-     if (location.pathname != "/react-ecommerce-store/" && location.pathname != "/react-ecommerce-store/browse" && selectedGame === false) {
+     if (location.pathname != "/streak-store/" && location.pathname != "/streak-store/browse" && selectedGame === false) {
           let surname = location.pathname.substring(29);
           console.log("test");
           let currentGame = games.find(game => game.surname === surname);
@@ -148,7 +148,7 @@ function App() {
           setTextExtended(false);
           setCartDisplayed(false);
           setHoverState([...hoverState, hoverState[21].hovered = false]);
-          navigate('/react-ecommerce-store/browse');
+          navigate('/streak-store/browse');
      }
 
      const handleHome = () => {
@@ -156,7 +156,7 @@ function App() {
           setTextExtended(false);
           setCartDisplayed(false);
           setHoverState([...hoverState, hoverState[21].hovered = false]);
-          navigate('/react-ecommerce-store/');
+          navigate('/streak-store/');
      }
 
      const handleSearch = (e) => {
@@ -169,8 +169,8 @@ function App() {
           e.preventDefault();
           setSearching(true);
 
-          if (location.pathname != "/react-ecommerce-store/browse") {
-               navigate('/react-ecommerce-store/browse');
+          if (location.pathname != "/streak-store/browse") {
+               navigate('/streak-store/browse');
           }
      }
 
@@ -183,7 +183,7 @@ function App() {
                return
           } else if (e.target.classList[0] != "AddToCart_addToCart__zbJPe") {
                setSelectedGame(games[e.target.parentNode.id]);
-               navigate(`/react-ecommerce-store/games/${games[e.target.parentNode.id].surname}`);
+               navigate(`/streak-store/games/${games[e.target.parentNode.id].surname}`);
           }
      }
 
@@ -209,7 +209,7 @@ function App() {
      const openGamePage = (e) => {
           setCartDisplayed(false);
           let selectedGameSurname = e.target.id;
-          navigate(`/react-ecommerce-store/games/${selectedGameSurname}`);
+          navigate(`/streak-store/games/${selectedGameSurname}`);
      }
 
      const handleHover = (e) => {
@@ -244,7 +244,7 @@ function App() {
 
      const handleAddToCart = (e) => {
           let handledAddedGame = allGames.map((game, i) => {
-               if (location.pathname === "/react-ecommerce-store/browse") {
+               if (location.pathname === "/streak-store/browse") {
                     if (e.target.id == i) {
                          game.inCart = true
                          let newCart = cart;
@@ -311,16 +311,16 @@ function App() {
      useEffect(() => {
           setOverlap(false);
 
-          if (location.pathname === "/react-ecommerce-store/") {
+          if (location.pathname === "/streak-store/") {
                setBrowsing(false);
           } else {
                setBrowsing(true);
           }
 
-          if (location.pathname != "/react-ecommerce-store/browse") {
+          if (location.pathname != "/streak-store/browse") {
                document.body.style.overflow = "hidden";
 
-          } else if (location.pathname === "/react-ecommerce-store/browse") {
+          } else if (location.pathname === "/streak-store/browse") {
                document.body.style.overflow = "scroll";
           }
      }, [location.pathname])
@@ -348,7 +348,7 @@ function App() {
      return (
           <AnimatePresence exitBeforeEnter>
                <Routes key={location.pathname} location={location}>
-                    <Route path="/react-ecommerce-store/" element={<Home
+                    <Route path="/streak-store/" element={<Home
                          handleHover={handleHover}
                          hoverState={hoverState}
                          shownGames={shownGames}
@@ -368,7 +368,7 @@ function App() {
                          setOverlap={setOverlap}
                          openGamePage={openGamePage}
                     />} />
-                    <Route path="/react-ecommerce-store/browse" element={<Browse
+                    <Route path="/streak-store/browse" element={<Browse
                          cart={cart}
                          cartAmount={cartAmount}
                          handleHover={handleHover}
@@ -401,7 +401,7 @@ function App() {
                          setHoverState={setHoverState}
                          openGamePage={openGamePage}
                     />} />
-                    <Route path="/react-ecommerce-store/games/:gameId" element={<GamePage
+                    <Route path="/streak-store/games/:gameId" element={<GamePage
                          cart={cart}
                          cartAmount={cartAmount}
                          handleHover={handleHover}
