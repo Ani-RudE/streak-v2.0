@@ -14,7 +14,6 @@ import { ReactComponent as Sources } from "../../Resources/image/sources.svg";
 import { motion, AnimatePresence, m } from "framer-motion";
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import Cart from '../../Components/Cart/Cart';
-import AnimatedScroll from '../AnimatedPage/AnimatedScroll';
 import games from '../../utils/games';
 
 const Home = props => {
@@ -140,24 +139,10 @@ const Home = props => {
                     <div className={styles.container}>
                          <div className={styles.left}>
                               <div className={styles.splash}>
-                                   <h1>Game Store</h1>
-                                   <p className={styles.intro}>The best destination to buy new games to competitive prices. 24 hour support, "best price" guarantee and a flawless UX. Wish for more? Tell us <span className={styles.here}>below</span> — or check out our <span className={styles.careers}>careers.</span></p>
+                                   <h1>STREAK <span className={styles.careers}>2.0</span></h1>
+                                   <p className={styles.intro}>The version 2.0 of <span className={styles.careers}>STREAK</span> - a Game Ecom Website <span className={styles.here}></span> </p>
                               </div>
 
-                              <div className={styles.buttons}>
-                                   <button className={`${styles.cta} ${styles.browseBtn}`} onClick={handleBrowse} aria-label="Browse">
-                                        <Enter className={styles.ctaSVG} />
-                                        Browse
-                                   </button>
-                                   <a href="https://github.com/Ani-RudE" target="_blank"><button className={styles.cta} aria-label="View Repository">
-                                        <GitHubLogo className={styles.ctaSVG} />
-                                        GitHub
-                                   </button></a>
-                                   <a href="linkedin.com/in/aniruddha-dewangan-75525b196/" target="_blank"><button className={`${styles.cta} ${styles.lastChild}`} aria-label="Open LinkedIn">
-                                        <LinkedIn className={`${styles.ctaSVG} ${styles.linkedin}`} />
-                                        <span>LinkedIn</span>
-                                   </button></a>
-                              </div>
                          </div>
 
                          <div className={styles.right}>
@@ -167,29 +152,13 @@ const Home = props => {
                                         <Game className={styles.ctaSVG} />
                                         Game Page
                                    </button>
-                                   <button className={styles.cta} onClick={handleNavNotFoundPage} aria-label="Open 404 page">
-                                        <NotFound className={styles.ctaSVG} />
-                                        404 Page
+                                   <button className={`${styles.cta} ${styles.browseBtn}`} onClick={handleBrowse} aria-label="Browse">
+                                        <Enter className={styles.ctaSVG} />
+                                        Browse
                                    </button>
-                                   <button className={`${styles.cta} ${styles.lastChild}`} onClick={handleNavNotFoundQuery} aria-label="open 404 query page">
-                                        <NotFoundQuery className={`${styles.ctaSVG}`} />
-                                        404 Query
-                                   </button>
-                                   <a href='https://github.com/gianlucajahn/react-ecommerce-store/commits/main' target="_blank"><button className={styles.cta} aria-label="Open commit log">
-                                        <Git className={styles.ctaSVG} />
-                                        Commit Log
-                                   </button></a>
-                                   <a href="https://github.com/gianlucajahn/react-ecommerce-store/blob/main/README.md#performance" target="_blank"><button className={`${styles.cta} ${styles.lastChild}`} aria-label="Open performance test results">
-                                        <Performance className={`${styles.ctaSVG}`} />
-                                        Performance
-                                   </button></a>
-                                   <a href="https://github.com/gianlucajahn/react-ecommerce-store/blob/main/README.md#technologies-used" target="_blank"><button className={`${styles.cta} ${styles.lastChild}`} aria-label="View technologies used">
-                                        <img className={styles.technologies} src={require("../../Resources/image/whatruns.png")} alt="WhatRuns logo" />
-                                        Technologies
-                                   </button></a>
-                                   <a href="https://github.com/gianlucajahn/react-ecommerce-store/blob/main/README.md#sources" target="_blank"><button className={`${styles.cta} ${styles.lastChild}`} aria-label="View Sources">
-                                        <Sources className={`${styles.ctaSVG}`} />
-                                        Our Sources
+                                   <a href="https://github.com/Ani-RudE" target="_blank"><button className={styles.cta} aria-label="View Repository">
+                                        <GitHubLogo className={styles.ctaSVG} />
+                                        GitHub
                                    </button></a>
                               </div>
                          </div>
