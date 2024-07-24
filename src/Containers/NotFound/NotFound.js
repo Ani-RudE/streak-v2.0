@@ -76,10 +76,10 @@ useEffect(() => {
 
             <motion.div className={styles.container} variants={animations} initial="initial" animate="animate" exit="exit">
                 <div className={styles.notFoundContent}>
-                    <img className={styles.notFoundImg} src={require("../../Resources/image/404.png")} alt="Not Found Warning" />
+                    <img className={styles.notFoundImg} src={require("../../Resources/image/404.png")} alt="Loading or Not Found Warning" />
                     <div className={styles.notFoundText}>
-                        <h2><span>{location.pathname.substring(22)}</span> is not available!</h2>
-                        <p>The page you tried to access is not available. You will be redirected to our browse section shortly. If you think this is an error, <span className={styles.contact}>contact us!</span></p>
+                        <h2><span>{location.pathname.substring(22)}</span> Loading! </h2>
+                        <p>The page you tried to access is loading. You will be redirected to our browse section shortly. Or maybe its a, <span className={styles.contact}>404!</span></p>
                     </div>
                 </div>
                 <motion.div className={styles.progressBar} variants={progress} initial="initial" animate="animate"></motion.div>
