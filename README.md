@@ -1,6 +1,8 @@
 ## Streak v2.0
 ### Game E-commerce Website
 
+![Home](https://github.com/Ani-RudE/streak-v2.0/blob/main/public/img-home.png?raw=true)
+
 #
 
 Welcome to **Streak v2.0**, a fully functional game e-commerce platform designed to provide users with an intuitive and engaging shopping experience for video games. This repository contains the source code for the Streak v2.0 website, developed using React.
@@ -55,5 +57,11 @@ To get a local copy of the project up and running, follow these steps:
 #
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](License
-This project is licensed under the MIT License. See the LICENSE file for more details.) file for more details.
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/Ani-RudE/streak-v2.0/blob/main/LICENSE) file for more details.
+
+## Images
+![Home](https://github.com/Ani-RudE/streak-v2.0/blob/main/public/img-home.png?raw=true)
+
+![Browse](https://github.com/Ani-RudE/streak-v2.0/blob/main/public/img-browse.png?raw=true)
+
+![Game-Page](https://github.com/Ani-RudE/streak-v2.0/blob/main/public/img-gamepage.png?raw=true)
